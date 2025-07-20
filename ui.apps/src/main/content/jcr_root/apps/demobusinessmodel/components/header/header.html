@@ -1,0 +1,31 @@
+<cq:includeClientLib categories="demobusinessmodel.header"/>
+<sly data-sly-use.model="com.adobe.aem.example.core.models.GlobalHeader">
+
+
+
+    <!-- Top Bar -->
+        <div class="top-bar">
+            <span class="contact"><i class="icon-phone"></i> ${model.phone}</span>
+            <span class="contact"><i class="icon-mail"></i> ${model.email}</span>
+            <span class="contact"><i class="icon-location"></i> ${model.location}</span>
+            <a class="btn-quote" href="${model.quoteLink}">GET A QUOTE</a>
+        </div>
+
+        <!-- Main Header -->
+        <header class="main-header">
+            <div class="logo">
+                <img src="${model.logoPath @ context='uri'}" alt="Logo"/>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li data-sly-repeat.navItem="${model.navigationItems}">
+                        <a href="${navItem.anchor}">${navItem.title}</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="search-icon">
+                <i class="icon-search"></i>
+            </div>
+        </header>
+
+    </sly>

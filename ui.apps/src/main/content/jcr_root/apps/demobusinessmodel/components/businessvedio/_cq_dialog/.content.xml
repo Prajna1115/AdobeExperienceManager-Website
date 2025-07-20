@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cq:dialog
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:cq="http://www.day.com/jcr/cq/1.0"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Video Component Configuration"
+        sling:resourceType="cq/gui/components/authoring/dialog"
+        extraClientlibs="[FutureConcepts.dialog]">
+
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+
+        <items jcr:primaryType="nt:unstructured">
+            <videoFields
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                    fieldLabel="Video Details">
+
+                <items jcr:primaryType="nt:unstructured">
+
+                    <title
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Video Title"
+                            name="./title"
+                            tooltip="Main heading for the video section"
+                            required="true" />
+
+                    <description
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                            fieldLabel="Description"
+                            name="./description"
+                            rows="4"
+                            tooltip="Optional supporting description shown next to the video" />
+
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                            fieldLabel="Client and Thumbnail Image"
+                            name="./image"
+                            rootPath="/content/dam"
+                            tooltip="Select an image from DAM"
+                            required="true" />
+
+                    <video
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                            fieldLabel="Video File (DAM)"
+                            name="./videoPath"
+                            rootPath="/content/dam"
+                            tooltip="Select a video from DAM"
+                            required="true" />
+
+                </items>
+            </videoFields>
+        </items>
+    </content>
+</cq:dialog>

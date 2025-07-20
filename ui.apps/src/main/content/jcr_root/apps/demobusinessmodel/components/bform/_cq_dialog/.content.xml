@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cq:dialog
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:cq="http://www.day.com/jcr/cq/1.0"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Quote Form Configuration"
+        sling:resourceType="cq/gui/components/authoring/dialog">
+
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+
+        <items jcr:primaryType="nt:unstructured">
+
+            <!-- Quote Form Fields -->
+            <quoteForm
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                    fieldLabel="Quote Form Section">
+
+                <items jcr:primaryType="nt:unstructured">
+                    <name
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Name"
+                            name="./name"
+                            required="true" />
+
+                    <email
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Email"
+                            name="./email"
+                            required="true" />
+
+                    <phone
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Phone"
+                            name="./phone"
+                            required="true" />
+
+                    <topic
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                            fieldLabel="Topic"
+                            name="./topic">
+                        <items jcr:primaryType="nt:unstructured">
+                            <option1
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Service Request"
+                                    value="Service Request"/>
+                            <option2
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Support"
+                                    value="Support"/>
+                            <option3
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Partnership"
+                                    value="Partnership"/>
+                        </items>
+                    </topic>
+
+                    <formImage
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                            fieldLabel="Form Right Side Image"
+                            name="./formImage"
+                            rootPath="/content/dam"
+                            required="true" />
+                </items>
+            </quoteForm>
+
+            <!-- Subscribe Section -->
+            <subscribeSection
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                    fieldLabel="Subscribe Section">
+
+                <items jcr:primaryType="nt:unstructured">
+                    <subscribeTitle
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Subscribe Title"
+                            name="./subscribeTitle"
+                            value="Subscribe For Latest Update" />
+
+                    <subscribeNamePlaceholder
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Name Field Placeholder"
+                            name="./subscribeNamePlaceholder"
+                            value="Your name" />
+
+                    <subscribeEmailPlaceholder
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Email Field Placeholder"
+                            name="./subscribeEmailPlaceholder"
+                            value="Your email" />
+
+                    <subscribeButtonLabel
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Subscribe Button Label"
+                            name="./subscribeButtonLabel"
+                            value="SUBSCRIBE" />
+
+                    <subscribeLogo
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                            fieldLabel="Subscribe Section Logo Image"
+                            name="./subscribeLogo"
+                            rootPath="/content/dam"
+                            required="false" />
+                </items>
+            </subscribeSection>
+
+        </items>
+    </content>
+</cq:dialog>

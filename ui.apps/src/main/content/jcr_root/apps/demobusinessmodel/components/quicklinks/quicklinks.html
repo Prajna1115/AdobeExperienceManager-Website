@@ -1,0 +1,20 @@
+
+
+<sly data-sly-use.model="com.adobe.aem.example.core.models.QuickLinksModel"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-test.quickLinks="${model.quickLinks}"
+     class="cmp-title">
+    <div class="sw-quicklinks-title">${properties.title}</div>
+    <div class="sw-row">
+        <ul class="sw-quicklinks">
+            <li class="sw-quicklink-list" data-sly-repeat.links="${model.quickLinks}">
+                <a href="${links.linkURL}">${links.linkLabel}</a>
+            </li>
+        </ul>
+    </div>
+</sly>
+
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='FutureConcepts.concepts'}"/>
+<sly data-sly-call="${clientlib.js @ categories='FutureConcepts.dialog'}" />

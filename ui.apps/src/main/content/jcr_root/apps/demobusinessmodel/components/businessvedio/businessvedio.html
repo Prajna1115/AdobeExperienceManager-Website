@@ -1,0 +1,35 @@
+<sly data-sly-use.video="com.adobe.aem.example.core.models.VideoComponent" />
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='FutureConcepts.concepts'}" />
+
+
+<div class="video-testimonial">
+    <div class="video-section">
+        <div class="video-thumbnail" data-sly-test="${video.videoPath}">
+            <video id="testimonialVideo" autoplay muted loop playsinline>
+                <source src="${video.videoPath @ context='uri'}" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <div class="testimonial-section">
+        <img class="client-image" data-sly-test="${video.image}" src="${video.image @ context='uri'}" alt="Client Image" />
+        <p class="testimonial-text" data-sly-test="${video.description}">
+            ${video.description}
+        </p>
+        <p class="client-name" data-sly-test="${video.title}">${video.title}</p>
+        <p class="client-role">Prajna Parimita Sahoo</p>
+    </div>
+</div>
+
+
+<script>
+    function playVideo() {
+        var video = document.getElementById("testimonialVideo");
+        if (video) {
+            video.style.display = "block";
+            video.play();
+        }
+    }
+</script>

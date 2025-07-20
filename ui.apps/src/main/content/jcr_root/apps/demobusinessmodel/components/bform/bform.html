@@ -1,0 +1,86 @@
+<!-- quote-subscribe.html -->
+<div style="font-family: sans-serif;">
+    <!-- Quote Form Section -->
+    <div style="background-color: #0d1b2a; color: white; padding: 3rem 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+        <!-- Left Side - Form -->
+        <div style="flex: 1; min-width: 300px; max-width: 600px; margin-right: 2rem;">
+            <h2 style="margin-bottom: 2rem;">Get a Quote</h2>
+            <form id="quoteForm" autocomplete="off">
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                    <input type="text" id="nameInput" name="name" placeholder="Your Name" style="width: 70%; padding: 1rem;" required />
+                    <input type="email" id="emailInput" name="email" placeholder="Email" style="width: 70%; padding: 1rem;" required />
+                </div>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                    <input type="text" id="phoneInput" name="phone" placeholder="Phone" style="width: 50%; padding: 1rem;" required />
+                    <select id="topicInput" name="topic" style="width: 50%; padding: 1rem;" required>
+                        <option disabled selected value="">Select a topic</option>
+                        <option value="Service Request">Service Request</option>
+                        <option value="Support">Support</option>
+                        <option value="Partnership">Partnership</option>
+                    </select>
+                </div>
+                <button type="submit" style="background-color: #28bbf4; color: white; border: none; padding: 1rem 2rem; font-weight: bold; cursor: pointer;">
+                    SEND REQUEST
+                </button>
+            </form>
+        </div>
+
+        <!-- Right Side - Image -->
+        <div style="flex: 1; min-width: 300px; text-align: center;">
+            <img src="${properties.formImage @ context='uri'}" alt="Form Side Image" style="max-width: 80%; height: auto; border-radius: 8px;" />
+        </div>
+    </div>
+
+    <!-- Subscribe Section -->
+    <div style="background-color: #f5f5f5; padding: 3rem 2rem;">
+        <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+            <!-- Logo -->
+            <img src="${properties.subscribeLogo @ context='uri'}" alt="Subscribe Logo" style="max-width: 200px;" />
+
+            <!-- Title + Form -->
+            <div style="text-align: left;">
+                <h2 style="color: #28bbf4; margin-bottom: 1rem;">${properties.subscribeTitle}</h2>
+                <form id="subscribeForm" autocomplete="off" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                    <input type="text" id="subscribeName" placeholder="${properties.subscribeNamePlaceholder}" style="padding: 1rem; width: 200px;" required />
+                    <input type="email" id="subscribeEmail" placeholder="${properties.subscribeEmailPlaceholder}" style="padding: 1rem; width: 200px;" required />
+                    <button type="submit" style="background-color: #28bbf4; color: white; border: none; padding: 1rem 2rem; font-weight: bold; cursor: pointer;">
+                        ${properties.subscribeButtonLabel}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JS to clear form after submit -->
+<script>
+    document.getElementById('quoteForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('nameInput').value;
+      const email = document.getElementById('emailInput').value;
+      const phone = document.getElementById('phoneInput').value;
+      const topic = document.getElementById('topicInput').value;
+
+      // Process the data (log or send to backend here)
+      console.log("Quote Submitted:", { name, email, phone, topic });
+      alert("Quote request submitted successfully!");
+
+      // Clear the form
+      this.reset();
+    });
+
+    document.getElementById('subscribeForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('subscribeName').value;
+      const email = document.getElementById('subscribeEmail').value;
+
+      console.log("Subscribed:", { name, email });
+      alert("Thank you for subscribing!");
+
+      // Clear the form
+      this.reset();
+    });
+</script>
+
