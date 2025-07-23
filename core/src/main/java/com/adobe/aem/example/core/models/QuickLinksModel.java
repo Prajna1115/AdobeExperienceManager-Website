@@ -15,25 +15,24 @@ import org.apache.sling.models.annotations.injectorspecific.ChildResource;
  */
 @Model(adaptables = Resource.class,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class QuickLinksModel {
 
-    @ValueMapValue
-    private String title;
 
-    @ChildResource(name = "quickLinks")
-    private List<LinkModel> quickLinks;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public List<LinkModel> getQuickLinks() {
-        if (quickLinks != null) {
-            List<LinkModel> reversed = new ArrayList<>(quickLinks);
-            Collections.reverse(reversed);
-            return reversed;
-        }
-        return Collections.emptyList();
-    }
+public interface QuickLinkItem {
+    String getLinkLabel();
+    String getLinkURL();
 }
 
+@Model(adaptables = Resource.class)
+public class QuickLinksModel {
+
+    @Inject
+    private String title;
+
+    @Inject
+    @Named("links")
+    private List<QuickLinkItem> quickLinks;
+
+    public List<QuickLinkItem> getQuickLinks() {
+        return quickLinks;
+    }
+}
